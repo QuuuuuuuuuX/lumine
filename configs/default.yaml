@@ -1,0 +1,38 @@
+# Lumine agent configuration.
+#
+# The three rates are the architecture. Change them and you have changed the paper.
+perception:
+  hz: 5.0            # raw pixels in
+  width: 640
+  height: 360
+  source: sim        # sim | screen | video
+
+control:
+  hz: 30.0           # keyboard/mouse out
+  controller: rules  # rules | learned | hybrid
+  backend: sim       # sim | uinput | dryrun
+
+brain:
+  provider: deepseek
+  model: deepseek-flash
+  api_key_env: DEEPSEEK_API_KEY
+  reasoning_effort: low    # measured: 2.0 s/call vs 2.4 s at the default
+  max_tokens: 1500
+  ground_grid: 32
+  fallback_to_scripted: true
+
+reason:
+  hz: 0.5                  # ceiling, not a schedule: triggers gate the actual calls
+  keepalive_s: 20.0
+  stuck_seconds: 6.0
+  surprise_z: 3.0
+  max_skill_seconds: 45.0
+
+sim:
+  region: mondstadt
+  seed: 0
+  fog: true
+
+# Faithful to Lumine: the agent sees pixels, nothing else.
+# Set to "pixels+hud" for the privileged-state ablation.
+observation_mode: pixels

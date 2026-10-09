@@ -1,0 +1,33 @@
+# Take over a real game on this machine.
+#
+#   python -m lumine play --config configs/live.yaml \
+#       --task "Defeat the enemies ahead and collect the chest"
+#
+# Requirements, in order of how likely each is to bite:
+#   1. Write access to /dev/uinput  ->  sudo usermod -aG input $USER  (then re-login)
+#   2. pip install mss              ->  fast screen capture
+#   3. A windowed (not exclusive-fullscreen) game, so capture and injection both work.
+perception:
+  source: screen
+  hz: 5.0
+  width: 640
+  height: 360
+  # Capture just the game window, in absolute desktop pixels: [left, top, width, height]
+  # capture_region: [0, 0, 1920, 1080]
+
+control:
+  backend: uinput
+  hz: 30.0
+  controller: rules
+  mouse_sensitivity: 12.0
+
+brain:
+  provider: deepseek
+  model: deepseek-flash
+  reasoning_effort: low
+
+# A real game has no success signal, so reasoning runs on a worker thread and the agent
+# keeps playing while it thinks. Freezing input for two seconds in a live game means dying.
+reason:
+  keepalive_s: 12.0
+  stuck_seconds: 4.0

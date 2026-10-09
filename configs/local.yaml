@@ -1,0 +1,11 @@
+# Fully local brain on an 8 GB GPU. No key, no network, no per-call cost.
+#
+#   ollama pull qwen3-vl:8b-instruct-q4_K_M
+#   python -m lumine probe --config configs/local.yaml
+brain:
+  provider: ollama
+  model: qwen3-vl:8b-instruct-q4_K_M
+  base_url: http://localhost:11434/v1
+  api_key_env: OLLAMA_API_KEY
+  reasoning_effort: null
+  max_tokens: 800

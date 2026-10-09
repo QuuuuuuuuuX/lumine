@@ -1,0 +1,19 @@
+# Core runtime. Deliberately tiny: numpy + OpenCV + Pillow cover perception, the sandbox
+# renderer, detection and video output. Nothing here is needed to *read* the codebase.
+numpy>=1.26
+opencv-python>=4.9
+Pillow>=10.0
+
+# Real-screen capture on this machine. The sandbox never needs it, so it is optional:
+# install it only when you point perception.source at a live game.
+mss>=9.0 ; sys_platform == "linux"
+
+# The action head. Without torch the trainer falls back to a numpy logistic/ridge model,
+# which is much weaker but keeps the collect -> train -> replay pipeline reproducible.
+# torch>=2.9
+
+# Local brains. Only needed for brain.provider == "ollama".
+# ollama>=0.3
+
+# Dev
+pytest>=8.0

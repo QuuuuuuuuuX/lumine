@@ -1,0 +1,56 @@
+{
+  "backend": "torch",
+  "stage": "pretrain",
+  "samples": 4510,
+  "epochs": 6,
+  "seconds": 19.7,
+  "final_loss": 0.794856,
+  "key_accuracy": 0.96182,
+  "key_f1": 0.62454,
+  "mouse_mae": 4.5416,
+  "checkpoint": "artifacts/checkpoints/action_head_pretrain",
+  "history": [
+    {
+      "epoch": 1,
+      "loss": 1.23783,
+      "key_accuracy": 0.91909,
+      "key_f1": 0.18447,
+      "mouse_mae": 4.7801
+    },
+    {
+      "epoch": 2,
+      "loss": 0.86426,
+      "key_accuracy": 0.95939,
+      "key_f1": 0.59299,
+      "mouse_mae": 4.7124
+    },
+    {
+      "epoch": 3,
+      "loss": 0.84934,
+      "key_accuracy": 0.91924,
+      "key_f1": 0.17981,
+      "mouse_mae": 4.6498
+    },
+    {
+      "epoch": 4,
+      "loss": 0.83164,
+      "key_accuracy": 0.96502,
+      "key_f1": 0.01769,
+      "mouse_mae": 4.7895
+    },
+    {
+      "epoch": 5,
+      "loss": 0.8088,
+      "key_accuracy": 0.96322,
+      "key_f1": 0.63153,
+      "mouse_mae": 4.6648
+    },
+    {
+      "epoch": 6,
+      "loss": 0.79486,
+      "key_accuracy": 0.96182,
+      "key_f1": 0.62454,
+      "mouse_mae": 4.5416
+    }
+  ]
+}

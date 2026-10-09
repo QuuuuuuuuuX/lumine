@@ -1,0 +1,11 @@
+# Zero-cost, zero-network: the scripted brain drives the hand-written controller.
+# Use this to validate the pipeline, collect behaviour-cloning data, or measure the
+# sandbox's step rate without paying for model calls.
+brain:
+  provider: none
+
+control:
+  controller: rules
+  backend: sim
+
+observation_mode: pixels
